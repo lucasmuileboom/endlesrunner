@@ -12,9 +12,17 @@ public class input : MonoBehaviour
     }
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             Playermovement.Jump();
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+         
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+           
         }
     }
 }

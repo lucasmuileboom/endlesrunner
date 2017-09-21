@@ -8,6 +8,8 @@ public class Playermovement : MonoBehaviour
     [SerializeField]private int jumpForce;
     private int Speed = 2;
     private Rigidbody _Rigidbody;
+    public bool jump = false;
+    public bool iscrouching = false;
 
     void Start ()
     {
@@ -27,7 +29,24 @@ public class Playermovement : MonoBehaviour
     }
     public void Jump()
     {
-        print("jump");
-        _Rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        if (!jump && !iscrouching)
+        {
+            _Rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jump = true;
+        }       
+    }
+    void crouch()
+    {
+        if (!jump && !iscrouching)
+        {
+            ///collider size en transform size moet kleiner worden
+        }
+    }
+    void standUp()
+    {
+        if (!jump && iscrouching)
+        {
+            ///collider size en transform size moet groter worden
+        }
     }
 }
