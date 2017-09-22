@@ -5,27 +5,32 @@ using UnityEngine;
 public class Playercollision : MonoBehaviour
 {
     Playermovement Playermovement;
+    score score;
+    highscore highscore;
 
-    void Start()
+    private void Start()
     {
         Playermovement = GetComponent<Playermovement>();
+        score = GameObject.Find("score").GetComponent<score>();
+        highscore = GameObject.Find("score").GetComponent<highscore>();
     }
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "enemy")
-        {
-            //gameover
+        {//gameover
+            score.StopsScore();
+            highscore.savehighscore();
         }
         if (collision.gameObject.tag == "floor")
         {
-            Playermovement.jump = false;
+            Playermovement.isjump = false;
         }
     }
-    void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "floor")
         {
-            Playermovement.jump = true;
+            Playermovement.isjump = true;
         }
     }
 }

@@ -6,23 +6,23 @@ public class input : MonoBehaviour
 {
     Playermovement Playermovement;
 
-    void Start ()
+    private void Start ()
     {
         Playermovement = GetComponent<Playermovement>();
     }
-	void Update ()
+    private void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Playermovement.Jump();
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-         
+            Playermovement.crouch();
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
         {
-           
+            Playermovement.standUp();
         }
     }
 }

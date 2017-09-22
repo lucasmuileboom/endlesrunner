@@ -6,16 +6,17 @@ public class Playermovement : MonoBehaviour
 {
     [SerializeField]private int maxSpeed;
     [SerializeField]private int jumpForce;
-    private int Speed = 2;
     private Rigidbody _Rigidbody;
-    public bool jump = false;
+    private int Speed = 2;
+    public bool isjump = false;
     public bool iscrouching = false;
 
-    void Start ()
+    private void Start ()
     {
         _Rigidbody = GetComponent<Rigidbody>();
+        
     }
-	void Update ()
+	private void Update ()
     {
         if (Speed > maxSpeed)
         {
@@ -23,30 +24,34 @@ public class Playermovement : MonoBehaviour
         }
         else if (Speed < maxSpeed)
         {
-            //Speed += ?;
+            //Speed verhogen
         }
         _Rigidbody.velocity = new Vector3(Speed, _Rigidbody.velocity.y, 0);
     }
     public void Jump()
     {
-        if (!jump && !iscrouching)
+        if (!isjump && !iscrouching)
         {
             _Rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            jump = true;
+            isjump = true;
         }       
     }
-    void crouch()
+    public void crouch()//weer op de grond zetten
     {
-        if (!jump && !iscrouching)
+        if (!isjump && !iscrouching)
         {
-            ///collider size en transform size moet kleiner worden
+            iscrouching = true;
+            GetComponent<BoxCollider>().transform.localScale = new Vector3(1,1,1);
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
         }
     }
-    void standUp()
+    public void standUp()
     {
-        if (!jump && iscrouching)
+        if (!isjump && iscrouching)
         {
-            ///collider size en transform size moet groter worden
+            iscrouching = false;
+            GetComponent<BoxCollider>().transform.localScale = new Vector3(1,2,1);
+            transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
         }
     }
 }
