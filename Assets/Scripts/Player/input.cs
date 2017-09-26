@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class input : MonoBehaviour
 {
-    Playermovement Playermovement;
+    private Playermovement Playermovement;
 
     private void Start ()
     {
