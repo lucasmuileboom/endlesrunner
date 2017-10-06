@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Player\Playercollision.cs" />
      <Compile Include="Assets\Scripts\Player\Playermovement.cs" />
      <Compile Include="Assets\Scripts\Player\input.cs" />
+     <Compile Include="Assets\Scripts\UIScripts\Menus.cs" />
      <Compile Include="Assets\Scripts\score\highscore.cs" />
      <Compile Include="Assets\Scripts\score\score.cs" />
      <Compile Include="Assets\Scripts\testScripts\Move.cs" />
