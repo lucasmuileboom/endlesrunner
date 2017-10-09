@@ -5,12 +5,18 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour {
+    [SerializeField]
+    private score Scores;
+
     public GameObject PauseMenuCanvas;
 	// Use this for initialization
 
     public void Update()
     {
-        PauseMenu();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
     }
 
     public void Start()
@@ -37,25 +43,23 @@ public class Menus : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
-    public void PauseMenu()
+    public void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
-        {
-            PauseMenuCanvas.SetActive(true);
-            Time.timeScale = 0;
-          
-        }else
 
-       
+        if (PauseMenuCanvas.gameObject.activeInHierarchy == false)
         {
-            PauseMenuCanvas.SetActive(false);
-            Time.timeScale = 1;
+            PauseMenuCanvas.gameObject.SetActive(true);
+            Time.timeScale = 0;
             
         }
-
-
-
+        else
+        {
+            PauseMenuCanvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+           
+        }
 
     }
-    
+
+
 }
