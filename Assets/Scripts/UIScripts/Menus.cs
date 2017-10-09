@@ -7,6 +7,17 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour {
     public GameObject PauseMenuCanvas;
 	// Use this for initialization
+
+    public void Update()
+    {
+        PauseMenu();
+    }
+
+    public void Start()
+    {
+        PauseMenuCanvas.SetActive(false);
+    }
+
 	public void NewGameLoad () {
         SceneManager.LoadScene(1);
 	}
@@ -28,16 +39,21 @@ public class Menus : MonoBehaviour {
 
     public void PauseMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)&&Time.timeScale ==1)
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
         {
             Time.timeScale = 0;
-            PauseMenuCanvas.gameObject.SetActive(true);
+            PauseMenuCanvas.SetActive(true);
         }
-        else
+
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
         {
             Time.timeScale = 1;
-            PauseMenuCanvas.gameObject.SetActive(false);
+            PauseMenuCanvas.SetActive(false);
         }
-       
+
+
+
+
     }
+    
 }
