@@ -41,14 +41,16 @@ public class Menus : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
         {
-            Time.timeScale = 0;
             PauseMenuCanvas.SetActive(true);
-        }
+            Time.timeScale = 0;
+          
+        }else
 
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
+       
         {
-            Time.timeScale = 1;
             PauseMenuCanvas.SetActive(false);
+            Time.timeScale = 1;
+            
         }
 
 
