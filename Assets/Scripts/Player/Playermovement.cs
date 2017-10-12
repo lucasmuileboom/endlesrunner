@@ -15,7 +15,8 @@ public class Playermovement : MonoBehaviour
 
     private void Start ()
     {
-        _Rigidbody = GetComponent<Rigidbody>();        
+        _Rigidbody = GetComponent<Rigidbody>();
+        _Rigidbody.velocity = new Vector3(Speed, _Rigidbody.velocity.y, 0);
     }
 	private void Update ()
     {
