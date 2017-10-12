@@ -7,9 +7,11 @@ public class Playermovement : MonoBehaviour
     [SerializeField]private int maxSpeed;
     [SerializeField]private int jumpForce;
     private Rigidbody _Rigidbody;
-    private int Speed = 2;
+    public float Speed = 2;
+    private float acceleration = 1.05f;
     public bool isjump = false;
     public bool iscrouching = false;
+
 
     private void Start ()
     {
@@ -23,7 +25,7 @@ public class Playermovement : MonoBehaviour
         }
         else if (Speed < maxSpeed)
         {
-            //Speed verhogen
+            Speed;
         }
         _Rigidbody.velocity = new Vector3(Speed, _Rigidbody.velocity.y, 0);
     }
@@ -40,7 +42,7 @@ public class Playermovement : MonoBehaviour
         if (!isjump && !iscrouching)
         {
             iscrouching = true;
-            GetComponent<BoxCollider>().transform.localScale = new Vector3(1,1,1);
+            GetComponent<CapsuleCollider>().transform.localScale = new Vector3(1,1,1);
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
         }
     }
@@ -49,7 +51,7 @@ public class Playermovement : MonoBehaviour
         if (!isjump && iscrouching)
         {
             iscrouching = false;
-            GetComponent<BoxCollider>().transform.localScale = new Vector3(1,2,1);
+            GetComponent<CapsuleCollider>().transform.localScale = new Vector3(1,2,1);
             transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
         }
     }
