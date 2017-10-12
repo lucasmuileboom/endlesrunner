@@ -8,6 +8,7 @@ public class Menus : MonoBehaviour {
     [SerializeField]
     private score Scores;
 
+    public GameObject panel;
     public GameObject PauseMenuCanvas;
 	// Use this for initialization
 
@@ -21,11 +22,13 @@ public class Menus : MonoBehaviour {
 
     public void Start()
     {
+        panel.SetActive(false);
         PauseMenuCanvas.SetActive(false);
     }
 
 	public void NewGameLoad () {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
 	}
 
     public void Quit()
@@ -41,6 +44,27 @@ public class Menus : MonoBehaviour {
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void InstructionMenu()
+    {
+        panel.SetActive(true);
+    }
+
+    public void Back()
+    {
+        panel.SetActive(false);
+    }
+
+    public void InstructionScene()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void Resume()
+    {
+        PauseMenuCanvas.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void Pause()
