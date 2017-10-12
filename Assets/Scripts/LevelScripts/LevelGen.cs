@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelGen : MonoBehaviour {
+    private Playermovement Playermovement;
     public List<GameObject> levelsList = new List<GameObject>();
     public GameObject CurrentLevel;
     private GameObject nextLevel;
@@ -10,7 +11,7 @@ public class LevelGen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-     
+        Playermovement = GameObject.Find("Player").GetComponent<Playermovement>();
         levelPosition = new Vector3(18, 0, 0);
 
     }
@@ -31,6 +32,7 @@ public class LevelGen : MonoBehaviour {
             nextLevel = levelsList[Random.Range(0, 4)];
             levelPosition = levelPosition + new Vector3(22, 0, 0);
             NextLevelSpawner();
+            Playermovement.getMoreSpeed();
         }
 
         

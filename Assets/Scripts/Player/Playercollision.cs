@@ -34,12 +34,4 @@ public class Playercollision : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-  /*  private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "floor")
-        {
-            Playermovement.isjump = true;
-        }
-    }
-    */
 }
