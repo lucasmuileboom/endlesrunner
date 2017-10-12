@@ -25,7 +25,7 @@ public class Playermovement : MonoBehaviour
         }
         else if (Speed < maxSpeed)
         {
-            Speed;
+           //acceleration.
         }
         _Rigidbody.velocity = new Vector3(Speed, _Rigidbody.velocity.y, 0);
     }
