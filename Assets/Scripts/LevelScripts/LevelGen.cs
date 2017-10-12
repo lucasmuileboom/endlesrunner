@@ -29,7 +29,6 @@ public class LevelGen : MonoBehaviour {
         if (other.CompareTag("generate"))
         {
             nextLevel = levelsList[Random.Range(0, 4)];
-            Debug.Log("hello people");
             levelPosition = levelPosition + new Vector3(22, 0, 0);
             NextLevelSpawner();
         }

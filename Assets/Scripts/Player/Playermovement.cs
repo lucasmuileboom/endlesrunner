@@ -13,8 +13,7 @@ public class Playermovement : MonoBehaviour
 
     private void Start ()
     {
-        _Rigidbody = GetComponent<Rigidbody>();
-        
+        _Rigidbody = GetComponent<Rigidbody>();        
     }
 	private void Update ()
     {

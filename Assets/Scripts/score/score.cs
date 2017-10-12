@@ -6,7 +6,7 @@ public class score : MonoBehaviour
 {
     [SerializeField] private Text scoreText;
     public int Score = 0;
-    private bool SCORE = true;
+    public bool SCORE = true;
 
     private void Start()
     {
@@ -14,16 +14,41 @@ public class score : MonoBehaviour
     }
     private void Update ()
     {
-        if (SCORE)
-        {
-            Score++;
-            scoreText.text = "Score: " + Score;
-        }  
+         if (SCORE)
+         {
+             Score++;
+             scoreText.text = "Score: " + Score;
+         }
+        PauseScore();
 	}
     public void StopsScore()
     {
         SCORE = false;
         print("Score: " + Score);
 
+    }
+
+
+    private void PauseScore()
+    {
+        if(Time.timeScale == 0)
+        {
+            StopScore();
+        }
+        else
+        {
+            Scoring();
+        }
+
+    }
+
+    public void StopScore()
+    {
+        SCORE = false;
+    }
+
+    public void Scoring()
+    {
+        SCORE = true;
     }
 }
