@@ -7,7 +7,7 @@ public class Playermovement : MonoBehaviour
     [SerializeField]private int maxSpeed;
     [SerializeField]private int jumpForce;
     private Rigidbody _Rigidbody;
-    private float Speed = 2;
+    private float Speed = 5;
     public bool isjump = false;
     public bool iscrouching = false;
 
@@ -53,7 +53,7 @@ public class Playermovement : MonoBehaviour
         }
         if (Speed < maxSpeed)
         {
-            Speed += 0.05f;
+            Speed += 0.15f;
         }
         print(Speed);
     }

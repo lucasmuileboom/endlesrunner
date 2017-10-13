@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playercollision : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Playercollision : MonoBehaviour
             score.StopsScore();
             highscore.savehighscore();
             coin.savecoins();
+            SceneManager.LoadScene(2);
         }
         if (collision.gameObject.tag == "floor")
         {
