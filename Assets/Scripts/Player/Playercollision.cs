@@ -5,14 +5,15 @@ using UnityEngine;
 public class Playercollision : MonoBehaviour
 {
     private Playermovement Playermovement;
+
     private score score;
     private highscore highscore;
     private coin coin;
 
     private void Start()
     {
-        coin = GameObject.Find("score").GetComponent<coin>();
         Playermovement = GetComponent<Playermovement>();
+        coin = GameObject.Find("score").GetComponent<coin>();
         score = GameObject.Find("score").GetComponent<score>();
         highscore = GameObject.Find("score").GetComponent<highscore>();
     }
@@ -20,6 +21,7 @@ public class Playercollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy")
         {//gameover
+            
             score.StopsScore();
             highscore.savehighscore();
             coin.savecoins();

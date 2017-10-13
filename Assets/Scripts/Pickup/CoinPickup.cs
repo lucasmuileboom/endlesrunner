@@ -13,7 +13,6 @@ public class CoinPickup : MonoBehaviour
     public void getcoins()
     {
         coin.coins += amountOfCoins;
-        print("coins");
         Destroy(gameObject);
     }
 }

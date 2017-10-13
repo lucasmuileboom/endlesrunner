@@ -14,7 +14,6 @@ public class ScorePickUp : MonoBehaviour
     public void getscore()
     {
         score.Score += amountOfScore;
-        print("score");
         Destroy(gameObject);
     }
 }

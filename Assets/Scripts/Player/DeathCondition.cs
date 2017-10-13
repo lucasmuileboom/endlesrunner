@@ -12,11 +12,19 @@ public class DeathCondition : MonoBehaviour
     private Vector3 prevPos;
     private Vector3 currentPos;
     private IEnumerator coroutine;
+
+    private score Score;
+    private highscore Highscore;
+    private coin Coin;
     
 
 
     void Start()
     {
+        Coin = GameObject.Find("score").GetComponent<coin>();
+        Score = GameObject.Find("score").GetComponent<score>();
+        Highscore = GameObject.Find("score").GetComponent<highscore>();
+
         rigidBody = GetComponent<Rigidbody>();
         coroutine = WaitAndPrint(0.05f);
         StartCoroutine(coroutine);
@@ -26,6 +34,9 @@ public class DeathCondition : MonoBehaviour
     {
      if(this.transform.position.y < 0)
         {
+            Score.StopsScore();
+            Highscore.savehighscore();
+            Coin.savecoins();
             SceneManager.LoadScene(2);
         }
     }
@@ -41,6 +52,9 @@ public class DeathCondition : MonoBehaviour
             float dist = prevPos.x - this.transform.position.x;
             if (Mathf.Abs(dist) < 0.01f)
             {
+                Score.StopsScore();
+                Highscore.savehighscore();
+                Coin.savecoins();
                 SceneManager.LoadScene(2);
                 StopAllCoroutines();
             }
